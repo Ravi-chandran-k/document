@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Verification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #6b8e23, #8fbc8f);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+        .container {
+            background: #fff;
+            padding: 40px 40px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            position: relative;
+        }
+        h2 {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input[type="password"] {
+            padding: 14px 20px;
+            width: 100%;
+            max-width: 350px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        input[type="password"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #666;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 20px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .link-section {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+            text-align: left;
+            justify-content: space-between;
+        }
+        .link-section div {
+            margin-bottom: 25px;
+        }
+        .link-section span {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .link-section input {
+            padding: 12px 20px;
+            width: 100%;
+            max-width: 350px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            transition: border-color 0.3s ease;
+        }
+        .link-section input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        .link-section button {
+            width: 100%;
+            max-width: 350px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Password Verification</h2>
+        <form id="passwordForm">
+            <input type="password" id="password" placeholder="Enter your main password">
+            <button type="button" onclick="checkPassword()">OK</button>
+        </form>
+
+        <div id="result" class="link-section"></div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            if (password === "9600") {
+                document.getElementById("result").innerHTML = `
+                    <div>
+                        <span><strong>MBA</strong></span>
+                        <input type="password" id="mbaPassword" placeholder="Enter password for MBA">
+                        <button onclick="openMBAFile()">Open MBA File</button>
+                    </div>
+                    <div>
+                        <span><strong>Important Document</strong></span>
+                        <input type="password" id="documentPassword" placeholder="Enter password for Important Document">
+                        <button onclick="openImportantDocument()">Open Document</button>
+                    </div>
+                `;
+            } else {
+                document.getElementById("result").textContent = "Incorrect password!";
+            }
+        }
+
+        function openMBAFile() {
+            var mbaPassword = document.getElementById("mbaPassword").value;
+            if (mbaPassword === "9840") {
+                window.open("https://drive.google.com/drive/folders/1U23cOOGZ4g0m2WI37lA7Rj9sn99bZrKm", "_blank");
+            } else {
+                alert("Incorrect password for the MBA file.");
+            }
+        }
+
+        function openImportantDocument() {
+            var documentPassword = document.getElementById("documentPassword").value;
+            if (documentPassword === "9840") {
+                window.open("https://drive.google.com/drive/folders/1N31zysQM3YCUQfnjY68fBztVhd0FiCqU", "_blank");
+            } else {
+                alert("Incorrect password for the Important Document.");
+            }
+        }
+    </script>
+</body>
+</html>
